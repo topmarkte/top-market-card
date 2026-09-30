@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta name="viewport"
@@ -10,15 +12,12 @@
         content="#417505">
 
   <meta name="description"
-        content="Top Market | بطاقة رقمية احترافية">
+        content="Top Market | Digital Business Card">
 
   <title>Top Market | Digital Card</title>
 
-  <style>
 
-    /* =========================
-       GENERAL
-    ========================= */
+  <style>
 
     * {
       margin: 0;
@@ -26,16 +25,23 @@
       box-sizing: border-box;
     }
 
+
     :root {
+
       --green: #417505;
-      --dark-green: #315904;
-      --light-green: #eef4e8;
-      --text: #202020;
+      --green-dark: #315904;
+      --green-soft: #eef4e8;
+
+      --text: #1d1d1d;
       --muted: #777;
-      --white: #ffffff;
+
+      --border: rgba(65,117,5,0.13);
+
     }
 
+
     body {
+
       min-height: 100vh;
 
       font-family:
@@ -45,187 +51,254 @@
         sans-serif;
 
       background:
+
         radial-gradient(
-          circle at 50% 0%,
-          #eef5e8 0%,
-          #ffffff 38%,
+          circle at 50% -10%,
+          #eaf2e3 0,
+          #ffffff 40%,
           #f7f9f5 100%
         );
 
-      color: var(--text);
-
       display: flex;
+
       justify-content: center;
+
       align-items: center;
 
       padding: 25px 15px;
 
-      overflow-x: hidden;
+      color: var(--text);
+
     }
 
 
-    /* =========================
-       CARD
-    ========================= */
+    /* =================================
+       MAIN CARD
+    ================================= */
 
     .card {
 
       width: 100%;
-      max-width: 440px;
 
-      background: rgba(255,255,255,0.97);
+      max-width: 450px;
 
-      border: 1px solid rgba(65,117,5,0.12);
+      background: rgba(255,255,255,.97);
 
-      border-radius: 32px;
+      border:
 
-      padding: 34px 24px 28px;
+        1px solid var(--border);
 
-      text-align: center;
+      border-radius: 34px;
 
-      box-shadow:
-        0 25px 70px rgba(0,0,0,0.10),
-        0 5px 18px rgba(65,117,5,0.07);
+      padding:
+
+        38px 25px 30px;
 
       position: relative;
 
       overflow: hidden;
 
+      text-align: center;
+
+      box-shadow:
+
+        0 30px 80px rgba(0,0,0,.10),
+
+        0 8px 25px rgba(65,117,5,.07);
+
       animation:
-        cardAppear 0.8s ease forwards;
+
+        cardIn .8s ease;
+
     }
 
-    @keyframes cardAppear {
+
+    @keyframes cardIn {
 
       from {
+
         opacity: 0;
-        transform: translateY(25px) scale(0.97);
+
+        transform:
+          translateY(30px)
+          scale(.97);
+
       }
 
       to {
+
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
+
       }
 
     }
 
 
-    /* Decorative top */
-
-    .top-decoration {
-
-      position: absolute;
-
-      top: -90px;
-      right: -70px;
-
-      width: 210px;
-      height: 210px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(65,117,5,0.06);
-    }
-
+    /* =================================
+       DECORATION
+    ================================= */
 
     .top-line {
 
       position: absolute;
 
       top: 0;
+
       left: 0;
 
       width: 100%;
+
       height: 5px;
 
       background:
+
         linear-gradient(
           90deg,
           #315904,
           #417505,
-          #668f35,
+          #6d963e,
           #417505,
           #315904
         );
+
     }
 
 
-    /* =========================
-       MH LOGO
-    ========================= */
-
-    .logo-area {
-
-      position: relative;
-
-      width: 118px;
-      height: 118px;
-
-      margin: 4px auto 20px;
-
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-    }
-
-
-    .logo-ring {
+    .decoration-one {
 
       position: absolute;
 
-      width: 118px;
-      height: 118px;
+      width: 210px;
+
+      height: 210px;
+
+      border-radius: 50%;
+
+      top: -135px;
+
+      right: -110px;
+
+      border:
+
+        1px solid
+        rgba(65,117,5,.10);
+
+    }
+
+
+    .decoration-two {
+
+      position: absolute;
+
+      width: 145px;
+
+      height: 145px;
+
+      border-radius: 50%;
+
+      bottom: -100px;
+
+      left: -70px;
+
+      background:
+
+        rgba(65,117,5,.035);
+
+    }
+
+
+    /* =================================
+       MH BRAND MARK
+    ================================= */
+
+    .brand-mark {
+
+      width: 125px;
+
+      height: 125px;
+
+      margin:
+
+        0 auto 20px;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .outer-ring {
+
+      position: absolute;
+
+      inset: 0;
 
       border-radius: 50%;
 
       border:
-        1px solid rgba(65,117,5,0.35);
 
-      transform: rotate(-12deg);
+        1px solid
+        rgba(65,117,5,.32);
+
+      transform:
+
+        rotate(-12deg);
+
     }
 
 
-    .logo-ring::before {
+    .outer-ring::after {
 
       content: "";
 
       position: absolute;
 
-      width: 82px;
-      height: 82px;
+      inset: 10px;
 
       border-radius: 50%;
 
       border:
-        1px solid rgba(65,117,5,0.20);
 
-      top: 17px;
-      left: 17px;
+        1px solid
+        rgba(65,117,5,.13);
+
     }
 
 
-    .mh-logo {
+    .inner-logo {
 
-      width: 91px;
-      height: 91px;
+      width: 94px;
+
+      height: 94px;
 
       border-radius: 50%;
 
       background:
+
         linear-gradient(
           145deg,
           #ffffff,
-          #f2f6ee
+          #f1f5ed
         );
 
       border:
-        3px solid var(--green);
+
+        3px solid
+        var(--green);
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       color: var(--green);
@@ -234,88 +307,97 @@
 
       font-weight: 800;
 
-      letter-spacing: 3px;
+      letter-spacing: 4px;
 
       box-shadow:
-        0 10px 28px rgba(65,117,5,0.16);
+
+        0 12px 30px
+        rgba(65,117,5,.15);
 
       position: relative;
 
       z-index: 2;
+
     }
 
 
-    /* =========================
-       NAME
-    ========================= */
+    /* =================================
+       BRAND NAME
+    ================================= */
 
     .brand-name {
 
-      font-size: 31px;
+      font-size: 32px;
 
       font-weight: 800;
 
-      letter-spacing: 0.5px;
-
       color: var(--green);
 
-      margin-bottom: 7px;
+      letter-spacing: .4px;
+
     }
 
 
     .brand-line {
 
-      width: 45px;
+      width: 48px;
+
       height: 2px;
+
+      margin:
+
+        11px auto 12px;
 
       background: var(--green);
 
-      margin: 0 auto 12px;
+      border-radius: 20px;
 
-      border-radius: 10px;
     }
 
 
-    .subtitle {
+    .brand-description {
 
-      color: var(--muted);
-
-      font-size: 14px;
+      font-size: 13.5px;
 
       line-height: 1.8;
 
-      margin-bottom: 27px;
+      color: var(--muted);
+
+      margin-bottom: 29px;
+
     }
 
 
-    /* =========================
+    /* =================================
        BUTTONS
-    ========================= */
+    ================================= */
 
-    .buttons {
+    .actions {
 
       display: flex;
 
       flex-direction: column;
 
-      gap: 12px;
+      gap: 13px;
+
     }
 
 
-    .btn {
+    .action {
 
       width: 100%;
 
-      min-height: 58px;
+      min-height: 61px;
 
-      border-radius: 17px;
+      border-radius: 18px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
-      gap: 11px;
+      gap: 12px;
 
       text-decoration: none;
 
@@ -325,84 +407,91 @@
 
       cursor: pointer;
 
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
+      border: none;
 
       position: relative;
 
       overflow: hidden;
+
+      transition:
+
+        transform .25s ease,
+
+        box-shadow .25s ease,
+
+        background .25s ease;
+
     }
 
 
-    .btn::after {
+    .action:hover {
 
-      content: "";
+      transform:
+        translateY(-3px);
 
-      position: absolute;
-
-      top: 0;
-      left: -100%;
-
-      width: 70%;
-      height: 100%;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,0.25),
-          transparent
-        );
-
-      transform: skewX(-20deg);
-
-      transition: 0.6s;
     }
 
 
-    .btn:hover::after {
+    .action:active {
 
-      left: 130%;
+      transform:
+        scale(.975);
+
     }
 
 
-    .btn:hover {
+    /* =================================
+       ICON CIRCLE
+    ================================= */
 
-      transform: translateY(-3px);
-    }
+    .icon-circle {
 
+      width: 35px;
 
-    .btn:active {
-
-      transform: scale(0.97);
-    }
-
-
-    .btn-icon {
-
-      width: 29px;
-      height: 29px;
+      height: 35px;
 
       border-radius: 50%;
 
       display: flex;
 
-      justify-content: center;
       align-items: center;
 
-      font-size: 16px;
+      justify-content: center;
+
+      flex-shrink: 0;
+
     }
 
 
-    /* Location */
+    .icon-circle svg {
 
-    .location-btn {
+      width: 18px;
 
-      color: white;
+      height: 18px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.8;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    /* =================================
+       LOCATION BUTTON
+    ================================= */
+
+    .location {
+
+      color: #ffffff;
 
       background:
+
         linear-gradient(
           135deg,
           #315904,
@@ -410,143 +499,184 @@
         );
 
       box-shadow:
-        0 10px 25px rgba(65,117,5,0.24);
+
+        0 12px 28px
+        rgba(65,117,5,.23);
+
     }
 
 
-    .location-btn:hover {
+    .location:hover {
 
       box-shadow:
-        0 14px 30px rgba(65,117,5,0.32);
+
+        0 16px 34px
+        rgba(65,117,5,.30);
+
     }
 
 
-    .location-btn .btn-icon {
+    .location .icon-circle {
 
       background:
-        rgba(255,255,255,0.16);
+        rgba(255,255,255,.14);
+
     }
 
 
-    /* Review */
+    /* =================================
+       REVIEW BUTTON
+    ================================= */
 
-    .review-btn {
+    .review {
 
       color: var(--green);
 
       background: #ffffff;
 
       border:
-        1px solid rgba(65,117,5,0.22);
+
+        1px solid
+        rgba(65,117,5,.18);
 
       box-shadow:
-        0 6px 18px rgba(0,0,0,0.04);
+
+        0 7px 22px
+        rgba(0,0,0,.045);
+
     }
 
 
-    .review-btn:hover {
+    .review:hover {
 
       background: #fafcf8;
 
       box-shadow:
-        0 9px 22px rgba(65,117,5,0.10);
+
+        0 11px 27px
+        rgba(65,117,5,.10);
+
     }
 
 
-    .review-btn .btn-icon {
-
-      background: #f5f7f1;
-    }
-
-
-    /* Share */
-
-    .share-btn {
-
-      color: #3d3d3d;
+    .review .icon-circle {
 
       background:
+
+        var(--green-soft);
+
+    }
+
+
+    /* =================================
+       SHARE BUTTON
+    ================================= */
+
+    .share {
+
+      color: #333;
+
+      background:
+
         #f5f7f3;
 
       border:
-        1px solid rgba(65,117,5,0.10);
+
+        1px solid
+        rgba(65,117,5,.09);
+
     }
 
 
-    .share-btn:hover {
+    .share:hover {
 
       background: #edf2e9;
+
     }
 
 
-    .share-btn .btn-icon {
-
-      background: white;
+    .share .icon-circle {
 
       color: var(--green);
+
+      background: #ffffff;
+
     }
 
 
-    /* =========================
-       QR SECTION
-    ========================= */
+    /* =================================
+       QR AREA
+    ================================= */
 
     .qr-section {
 
-      margin-top: 30px;
+      margin-top: 31px;
 
-      padding-top: 25px;
+      padding-top: 26px;
 
       border-top:
+
         1px solid #eeeeee;
+
     }
 
 
-    .qr-label {
-
-      font-size: 13px;
+    .qr-title {
 
       color: #666;
 
-      margin-bottom: 14px;
+      font-size: 13px;
+
+      margin-bottom: 15px;
+
     }
 
 
-    .qr-box {
+    .qr-wrapper {
 
-      width: 175px;
-      height: 175px;
+      width: 182px;
+
+      height: 182px;
 
       margin: auto;
 
+      padding: 13px;
+
       background: white;
 
-      border-radius: 19px;
+      border-radius: 20px;
 
-      padding: 12px;
+      border:
+
+        1px solid
+        rgba(65,117,5,.12);
+
+      box-shadow:
+
+        0 10px 28px
+        rgba(0,0,0,.065);
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
-      border:
-        1px solid rgba(65,117,5,0.12);
-
-      box-shadow:
-        0 8px 25px rgba(0,0,0,0.07);
     }
 
 
     #qrcode {
 
-      width: 151px;
-      height: 151px;
+      width: 154px;
+
+      height: 154px;
 
       display: flex;
 
       align-items: center;
+
       justify-content: center;
+
     }
 
 
@@ -554,139 +684,172 @@
     #qrcode canvas {
 
       max-width: 100%;
+
       max-height: 100%;
+
     }
 
 
-    /* =========================
+    /* =================================
        FOOTER
-    ========================= */
+    ================================= */
 
     .footer {
 
       margin-top: 24px;
 
+      color: #a0a0a0;
+
       font-size: 11.5px;
 
-      color: #999;
-
-      letter-spacing: 0.2px;
     }
 
 
     .footer strong {
 
       color: var(--green);
+
     }
 
 
-    /* =========================
+    /* =================================
        MOBILE
-    ========================= */
+    ================================= */
 
     @media (max-width: 390px) {
 
       body {
 
         padding: 15px 10px;
+
       }
 
 
       .card {
 
         padding:
-          30px 18px 24px;
 
-        border-radius: 27px;
+          32px 18px 25px;
+
+        border-radius: 28px;
+
       }
 
 
-      .logo-area {
+      .brand-mark {
 
-        transform: scale(0.92);
+        transform: scale(.92);
 
-        margin-bottom: 13px;
+        margin-bottom: 12px;
+
       }
 
 
       .brand-name {
 
         font-size: 28px;
+
       }
 
 
-      .btn {
+      .action {
 
-        min-height: 55px;
+        min-height: 57px;
 
         font-size: 15px;
+
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
+
   <main class="card">
+
 
     <div class="top-line"></div>
 
-    <div class="top-decoration"></div>
+    <div class="decoration-one"></div>
+
+    <div class="decoration-two"></div>
 
 
-    <!-- =====================
+    <!-- =========================
          MH LOGO
-    ====================== -->
+    ========================== -->
 
-    <div class="logo-area">
+    <div class="brand-mark">
 
-      <div class="logo-ring"></div>
+      <div class="outer-ring"></div>
 
-      <div class="mh-logo">
+      <div class="inner-logo">
         MH
       </div>
 
     </div>
 
 
-    <!-- =====================
+    <!-- =========================
          BRAND
-    ====================== -->
+    ========================== -->
 
     <h1 class="brand-name">
       Top Market
     </h1>
 
+
     <div class="brand-line"></div>
 
-    <p class="subtitle">
+
+    <p class="brand-description">
+
       بطاقة رقمية احترافية
+
       <br>
+
       للوصول السريع إلى Top Market
+
     </p>
 
 
-    <!-- =====================
-         BUTTONS
-    ====================== -->
+    <!-- =========================
+         ACTIONS
+    ========================== -->
 
-    <div class="buttons">
+    <div class="actions">
 
 
-      <!-- GOOGLE MAPS -->
+      <!-- LOCATION -->
 
       <a
-        class="btn location-btn"
+        class="action location"
         href="https://www.google.com/maps/search/?api=1&query=Top+Market%2C+RES+FERDAOUS%2C+A%C3%AFn+El+Aouda+12100"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <span class="btn-icon">
-          📍
+        <span class="icon-circle">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z">
+            </path>
+
+            <circle
+              cx="12"
+              cy="10"
+              r="2.5">
+            </circle>
+
+          </svg>
+
         </span>
 
         <span>
@@ -699,14 +862,22 @@
       <!-- GOOGLE REVIEW -->
 
       <a
-        class="btn review-btn"
+        class="action review"
         href="https://g.page/r/CSILOBBl7U49ECE/review"
         target="_blank"
         rel="noopener noreferrer"
       >
 
-        <span class="btn-icon">
-          ⭐
+        <span class="icon-circle">
+
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-2.9-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z">
+            </path>
+
+          </svg>
+
         </span>
 
         <span>
@@ -719,12 +890,42 @@
       <!-- SHARE -->
 
       <button
-        class="btn share-btn"
+        class="action share"
         onclick="shareCard()"
       >
 
-        <span class="btn-icon">
-          ↗
+        <span class="icon-circle">
+
+          <svg viewBox="0 0 24 24">
+
+            <circle
+              cx="18"
+              cy="5"
+              r="2.5">
+            </circle>
+
+            <circle
+              cx="6"
+              cy="12"
+              r="2.5">
+            </circle>
+
+            <circle
+              cx="18"
+              cy="19"
+              r="2.5">
+            </circle>
+
+            <path
+              d="m8.2 10.8 7.5-4.3">
+            </path>
+
+            <path
+              d="m8.2 13.2 7.5 4.3">
+            </path>
+
+          </svg>
+
         </span>
 
         <span>
@@ -733,20 +934,22 @@
 
       </button>
 
+
     </div>
 
 
-    <!-- =====================
-         QR
-    ====================== -->
+    <!-- =========================
+         QR CODE
+    ========================== -->
 
     <section class="qr-section">
 
-      <p class="qr-label">
+      <p class="qr-title">
         امسح الرمز لفتح البطاقة
       </p>
 
-      <div class="qr-box">
+
+      <div class="qr-wrapper">
 
         <div id="qrcode"></div>
 
@@ -755,9 +958,9 @@
     </section>
 
 
-    <!-- =====================
+    <!-- =========================
          FOOTER
-    ====================== -->
+    ========================== -->
 
     <div class="footer">
 
@@ -768,6 +971,7 @@
       Digital Business Card
 
     </div>
+
 
   </main>
 
@@ -781,25 +985,37 @@
 
   <script>
 
+
     /* =========================
        QR CODE
     ========================= */
 
     new QRCode(
+
       document.getElementById("qrcode"),
+
       {
-        text: window.location.href,
 
-        width: 151,
-        height: 151,
+        text:
+          window.location.href,
 
-        colorDark: "#417505",
+        width:
+          154,
 
-        colorLight: "#ffffff",
+        height:
+          154,
+
+        colorDark:
+          "#417505",
+
+        colorLight:
+          "#ffffff",
 
         correctLevel:
           QRCode.CorrectLevel.H
+
       }
+
     );
 
 
@@ -809,19 +1025,23 @@
 
     async function shareCard() {
 
+
       const shareData = {
 
-        title: "Top Market",
+        title:
+          "Top Market",
 
         text:
           "Top Market - البطاقة الرقمية",
 
         url:
           window.location.href
+
       };
 
 
       if (navigator.share) {
+
 
         try {
 
@@ -829,13 +1049,19 @@
             shareData
           );
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
           // تم إغلاق نافذة المشاركة
 
         }
 
-      } else {
+
+      }
+
+      else {
+
 
         try {
 
@@ -847,7 +1073,9 @@
             "تم نسخ رابط البطاقة بنجاح"
           );
 
-        } catch (error) {
+        }
+
+        catch (error) {
 
           prompt(
             "انسخ رابط البطاقة:",
@@ -862,5 +1090,7 @@
 
   </script>
 
+
 </body>
+
 </html>
