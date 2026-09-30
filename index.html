@@ -146,6 +146,89 @@
 
 
     /* =====================================================
+       LANGUAGE SWITCHER
+    ===================================================== */
+
+    .language-switcher {
+
+      position: relative;
+
+      z-index: 10;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 5px;
+
+      margin-bottom: 18px;
+
+      direction: ltr;
+
+    }
+
+
+    .lang-btn {
+
+      border: 1px solid rgba(65,117,5,.13);
+
+      background: #f7f9f5;
+
+      color: #70756d;
+
+      border-radius: 10px;
+
+      padding: 7px 11px;
+
+      font-family: inherit;
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition:
+        all .25s ease;
+
+    }
+
+
+    .lang-btn:hover {
+
+      border-color:
+        rgba(65,117,5,.3);
+
+      color:
+        var(--green);
+
+      transform:
+        translateY(-1px);
+
+    }
+
+
+    .lang-btn.active {
+
+      background:
+        var(--green);
+
+      color:
+        white;
+
+      border-color:
+        var(--green);
+
+      box-shadow:
+        0 5px 13px
+        rgba(65,117,5,.18);
+
+    }
+
+
+    /* =====================================================
        TOP ACCENT
     ===================================================== */
 
@@ -259,8 +342,6 @@
     }
 
 
-    /* Outer rotating circle */
-
     .monogram::before {
 
       content: "";
@@ -274,16 +355,11 @@
       border:
         1px solid rgba(65,117,5,.35);
 
-      transform:
-        rotate(12deg);
-
       animation:
         monogramRotate 18s linear infinite;
 
     }
 
-
-    /* Inner rotating circle */
 
     .monogram::after {
 
@@ -298,29 +374,20 @@
       border:
         1px solid rgba(65,117,5,.12);
 
-      transform:
-        rotate(-12deg);
-
       animation:
         monogramRotateReverse 12s linear infinite;
 
     }
 
 
-    /* =====================================================
-       ELEGANT CONTINUOUS ROTATION
-    ===================================================== */
-
     @keyframes monogramRotate {
 
       from {
-        transform:
-          rotate(0deg);
+        transform: rotate(0deg);
       }
 
       to {
-        transform:
-          rotate(360deg);
+        transform: rotate(360deg);
       }
 
     }
@@ -329,13 +396,11 @@
     @keyframes monogramRotateReverse {
 
       from {
-        transform:
-          rotate(0deg);
+        transform: rotate(0deg);
       }
 
       to {
-        transform:
-          rotate(-360deg);
+        transform: rotate(-360deg);
       }
 
     }
@@ -531,6 +596,15 @@
     }
 
 
+    [dir="ltr"] .action-icon {
+
+      margin-left: 0;
+
+      margin-right: 12px;
+
+    }
+
+
     .action-icon svg {
 
       width: 20px;
@@ -555,6 +629,13 @@
       flex: 1;
 
       text-align: right;
+
+    }
+
+
+    [dir="ltr"] .action-content {
+
+      text-align: left;
 
     }
 
@@ -951,6 +1032,16 @@
 
       }
 
+
+      .lang-btn {
+
+        padding:
+          6px 9px;
+
+        font-size: 10px;
+
+      }
+
     }
 
 
@@ -994,6 +1085,36 @@
 
 
     <!-- =================================================
+         LANGUAGE SWITCHER
+    ================================================== -->
+
+    <div class="language-switcher">
+
+      <button
+        class="lang-btn active"
+        data-lang="ar"
+        onclick="changeLanguage('ar')">
+        العربية
+      </button>
+
+      <button
+        class="lang-btn"
+        data-lang="fr"
+        onclick="changeLanguage('fr')">
+        Français
+      </button>
+
+      <button
+        class="lang-btn"
+        data-lang="en"
+        onclick="changeLanguage('en')">
+        English
+      </button>
+
+    </div>
+
+
+    <!-- =================================================
          BRAND
     ================================================== -->
 
@@ -1017,7 +1138,9 @@
       <div class="brand-rule"></div>
 
 
-      <p class="brand-description">
+      <p
+        class="brand-description"
+        id="brandDescription">
 
         بطاقة رقمية احترافية
 
@@ -1038,9 +1161,7 @@
     <section class="actions">
 
 
-      <!-- =========================
-           GOOGLE MAPS
-      ========================== -->
+      <!-- GOOGLE MAPS -->
 
       <a
         class="action location"
@@ -1070,11 +1191,15 @@
 
         <span class="action-content">
 
-          <span class="action-title">
+          <span
+            class="action-title"
+            id="locationTitle">
             موقع Top Market
           </span>
 
-          <span class="action-subtitle">
+          <span
+            class="action-subtitle"
+            id="locationSubtitle">
             فتح الموقع على Google Maps
           </span>
 
@@ -1094,9 +1219,7 @@
       </a>
 
 
-      <!-- =========================
-           GOOGLE REVIEW
-      ========================== -->
+      <!-- GOOGLE REVIEW -->
 
       <a
         class="action review"
@@ -1120,11 +1243,15 @@
 
         <span class="action-content">
 
-          <span class="action-title">
+          <span
+            class="action-title"
+            id="reviewTitle">
             قيّمنا على Google
           </span>
 
-          <span class="action-subtitle">
+          <span
+            class="action-subtitle"
+            id="reviewSubtitle">
             شاركنا رأيك وتجربتك
           </span>
 
@@ -1144,9 +1271,7 @@
       </a>
 
 
-      <!-- =========================
-           SHARE
-      ========================== -->
+      <!-- SHARE -->
 
       <button
         class="action share"
@@ -1187,11 +1312,15 @@
 
         <span class="action-content">
 
-          <span class="action-title">
+          <span
+            class="action-title"
+            id="shareTitle">
             مشاركة البطاقة
           </span>
 
-          <span class="action-subtitle">
+          <span
+            class="action-subtitle"
+            id="shareSubtitle">
             أرسل بطاقة Top Market لشخص آخر
           </span>
 
@@ -1221,8 +1350,12 @@
     <section class="qr-section">
 
 
-      <p class="qr-heading">
+      <p
+        class="qr-heading"
+        id="qrHeading">
+
         امسح QR Code لفتح البطاقة
+
       </p>
 
 
@@ -1246,7 +1379,9 @@
 
       &nbsp;•&nbsp;
 
-      Digital Business Card
+      <span id="footerText">
+        Digital Business Card
+      </span>
 
     </footer>
 
@@ -1265,112 +1400,37 @@
 
   <script>
 
-
     /* ===================================================
-       QR CODE
-    ==================================================== */
+       TRANSLATIONS
+    =================================================== */
 
-    new QRCode(
+    const translations = {
 
-      document.getElementById("qrcode"),
+      ar: {
 
-      {
+        description:
+          "بطاقة رقمية احترافية<br>وصول سريع إلى Top Market",
 
-        text:
-          window.location.href,
+        locationTitle:
+          "موقع Top Market",
 
-        width:
-          160,
+        locationSubtitle:
+          "فتح الموقع على Google Maps",
 
-        height:
-          160,
+        reviewTitle:
+          "قيّمنا على Google",
 
-        colorDark:
-          "#417505",
+        reviewSubtitle:
+          "شاركنا رأيك وتجربتك",
 
-        colorLight:
-          "#ffffff",
+        shareTitle:
+          "مشاركة البطاقة",
 
-        correctLevel:
-          QRCode.CorrectLevel.H
+        shareSubtitle:
+          "أرسل بطاقة Top Market لشخص آخر",
 
-      }
+        qrHeading:
+          "امسح QR Code لفتح البطاقة",
 
-    );
-
-
-    /* ===================================================
-       SHARE
-    ==================================================== */
-
-    async function shareCard() {
-
-
-      const shareData = {
-
-        title:
-          "Top Market",
-
-        text:
-          "Top Market — البطاقة الرقمية",
-
-        url:
-          window.location.href
-
-      };
-
-
-      if (navigator.share) {
-
-
-        try {
-
-          await navigator.share(
-            shareData
-          );
-
-        }
-
-        catch (error) {
-
-          /* المستخدم أغلق نافذة المشاركة */
-
-        }
-
-
-      }
-
-      else {
-
-
-        try {
-
-          await navigator.clipboard.writeText(
-            window.location.href
-          );
-
-          alert(
-            "تم نسخ رابط البطاقة بنجاح"
-          );
-
-        }
-
-        catch (error) {
-
-          prompt(
-            "انسخ رابط البطاقة:",
-            window.location.href
-          );
-
-        }
-
-      }
-
-    }
-
-  </script>
-
-
-</body>
-
-</html>
+        footer:
+          "Digital Business Car
