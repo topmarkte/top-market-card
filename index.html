@@ -18,12 +18,7 @@
 
   <style>
 
-    /* =====================================================
-       ROOT
-    ===================================================== */
-
     :root {
-
       --green: #417505;
       --green-dark: #2f5603;
       --green-light: #edf4e7;
@@ -33,13 +28,8 @@
       --line: #e9ede6;
 
       --white: #ffffff;
-
     }
 
-
-    /* =====================================================
-       RESET
-    ===================================================== */
 
     * {
       margin: 0;
@@ -85,9 +75,7 @@
     }
 
 
-    /* =====================================================
-       MAIN CARD
-    ===================================================== */
+    /* MAIN CARD */
 
     .card {
 
@@ -145,9 +133,7 @@
     }
 
 
-    /* =====================================================
-       LANGUAGE SWITCHER
-    ===================================================== */
+    /* LANGUAGE SWITCHER */
 
     .language-switcher {
 
@@ -228,9 +214,7 @@
     }
 
 
-    /* =====================================================
-       TOP ACCENT
-    ===================================================== */
+    /* TOP ACCENT */
 
     .accent {
 
@@ -258,7 +242,7 @@
     }
 
 
-    /* Decorative circles */
+    /* DECORATIVE CIRCLES */
 
     .decor {
 
@@ -303,9 +287,7 @@
     }
 
 
-    /* =====================================================
-       BRAND AREA
-    ===================================================== */
+    /* BRAND */
 
     .brand {
 
@@ -318,9 +300,7 @@
     }
 
 
-    /* =====================================================
-       MH MONOGRAM
-    ===================================================== */
+    /* MH MONOGRAM */
 
     .monogram {
 
@@ -453,9 +433,7 @@
     }
 
 
-    /* =====================================================
-       NAME
-    ===================================================== */
+    /* NAME */
 
     .brand-name {
 
@@ -501,9 +479,7 @@
     }
 
 
-    /* =====================================================
-       ACTIONS
-    ===================================================== */
+    /* ACTIONS */
 
     .actions {
 
@@ -571,9 +547,7 @@
     }
 
 
-    /* =====================================================
-       ACTION ICON
-    ===================================================== */
+    /* ACTION ICON */
 
     .action-icon {
 
@@ -704,9 +678,7 @@
     }
 
 
-    /* =====================================================
-       LOCATION
-    ===================================================== */
+    /* LOCATION */
 
     .location {
 
@@ -754,9 +726,7 @@
     }
 
 
-    /* =====================================================
-       REVIEW
-    ===================================================== */
+    /* REVIEW */
 
     .review {
 
@@ -796,9 +766,7 @@
     }
 
 
-    /* =====================================================
-       SHARE
-    ===================================================== */
+    /* SHARE */
 
     .share {
 
@@ -828,8 +796,6 @@
       background: white;
 
     }
-
-
     /* =====================================================
        QR SECTION
     ===================================================== */
@@ -1094,21 +1060,29 @@
         class="lang-btn active"
         data-lang="ar"
         onclick="changeLanguage('ar')">
+
         العربية
+
       </button>
+
 
       <button
         class="lang-btn"
         data-lang="fr"
         onclick="changeLanguage('fr')">
+
         Français
+
       </button>
+
 
       <button
         class="lang-btn"
         data-lang="en"
         onclick="changeLanguage('en')">
+
         English
+
       </button>
 
     </div>
@@ -1194,13 +1168,18 @@
           <span
             class="action-title"
             id="locationTitle">
+
             موقع Top Market
+
           </span>
+
 
           <span
             class="action-subtitle"
             id="locationSubtitle">
+
             فتح الموقع على Google Maps
+
           </span>
 
         </span>
@@ -1246,13 +1225,18 @@
           <span
             class="action-title"
             id="reviewTitle">
+
             قيّمنا على Google
+
           </span>
+
 
           <span
             class="action-subtitle"
             id="reviewSubtitle">
+
             شاركنا رأيك وتجربتك
+
           </span>
 
         </span>
@@ -1315,13 +1299,18 @@
           <span
             class="action-title"
             id="shareTitle">
+
             مشاركة البطاقة
+
           </span>
+
 
           <span
             class="action-subtitle"
             id="shareSubtitle">
+
             أرسل بطاقة Top Market لشخص آخر
+
           </span>
 
         </span>
@@ -1387,22 +1376,18 @@
 
 
   </main>
-
-
-  <!-- ===================================================
+  <!-- =====================================================
        QR CODE LIBRARY
-  ==================================================== -->
+  ====================================================== -->
 
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
   <script>
 
-    /* ===================================================
+    /* =====================================================
        TRANSLATIONS
-    =================================================== */
+    ====================================================== */
 
     const translations = {
 
@@ -1433,4 +1418,314 @@
           "امسح QR Code لفتح البطاقة",
 
         footer:
-          "Digital Business Car
+          "Digital Business Card",
+
+        shareText:
+          "Top Market — البطاقة الرقمية",
+
+        copied:
+          "تم نسخ رابط البطاقة بنجاح"
+
+      },
+
+
+      fr: {
+
+        description:
+          "Carte numérique professionnelle<br>Accès rapide à Top Market",
+
+        locationTitle:
+          "Emplacement Top Market",
+
+        locationSubtitle:
+          "Ouvrir l'emplacement sur Google Maps",
+
+        reviewTitle:
+          "Évaluez-nous sur Google",
+
+        reviewSubtitle:
+          "Partagez votre avis et votre expérience",
+
+        shareTitle:
+          "Partager la carte",
+
+        shareSubtitle:
+          "Envoyez la carte Top Market à quelqu'un",
+
+        qrHeading:
+          "Scannez le QR Code pour ouvrir la carte",
+
+        footer:
+          "Carte de visite numérique",
+
+        shareText:
+          "Top Market — Carte numérique",
+
+        copied:
+          "Le lien de la carte a été copié"
+
+      },
+
+
+      en: {
+
+        description:
+          "Professional digital card<br>Quick access to Top Market",
+
+        locationTitle:
+          "Top Market Location",
+
+        locationSubtitle:
+          "Open location on Google Maps",
+
+        reviewTitle:
+          "Review us on Google",
+
+        reviewSubtitle:
+          "Share your opinion and experience",
+
+        shareTitle:
+          "Share the Card",
+
+        shareSubtitle:
+          "Send the Top Market card to someone",
+
+        qrHeading:
+          "Scan the QR Code to open the card",
+
+        footer:
+          "Digital Business Card",
+
+        shareText:
+          "Top Market — Digital Card",
+
+        copied:
+          "Card link copied successfully"
+
+      }
+
+    };
+
+
+    /* =====================================================
+       CURRENT LANGUAGE
+    ====================================================== */
+
+    let currentLanguage = "ar";
+
+
+    /* =====================================================
+       CHANGE LANGUAGE
+    ====================================================== */
+
+    function changeLanguage(lang) {
+
+      if (!translations[lang]) return;
+
+
+      currentLanguage = lang;
+
+
+      const t = translations[lang];
+
+
+      /* Page language */
+
+      document.documentElement.lang = lang;
+
+
+      /* Page direction */
+
+      document.documentElement.dir =
+        lang === "ar" ? "rtl" : "ltr";
+
+
+      /* Text */
+
+      document.getElementById(
+        "brandDescription"
+      ).innerHTML = t.description;
+
+
+      document.getElementById(
+        "locationTitle"
+      ).textContent = t.locationTitle;
+
+
+      document.getElementById(
+        "locationSubtitle"
+      ).textContent = t.locationSubtitle;
+
+
+      document.getElementById(
+        "reviewTitle"
+      ).textContent = t.reviewTitle;
+
+
+      document.getElementById(
+        "reviewSubtitle"
+      ).textContent = t.reviewSubtitle;
+
+
+      document.getElementById(
+        "shareTitle"
+      ).textContent = t.shareTitle;
+
+
+      document.getElementById(
+        "shareSubtitle"
+      ).textContent = t.shareSubtitle;
+
+
+      document.getElementById(
+        "qrHeading"
+      ).textContent = t.qrHeading;
+
+
+      document.getElementById(
+        "footerText"
+      ).textContent = t.footer;
+
+
+      /* Active language button */
+
+      document.querySelectorAll(
+        ".lang-btn"
+      ).forEach(button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.lang === lang
+        );
+
+      });
+
+    }
+
+
+    /* =====================================================
+       QR CODE
+    ====================================================== */
+
+    const qrContainer =
+      document.getElementById("qrcode");
+
+
+    if (qrContainer && typeof QRCode !== "undefined") {
+
+      new QRCode(qrContainer, {
+
+        text: window.location.href,
+
+        width: 160,
+
+        height: 160,
+
+        colorDark: "#171a16",
+
+        colorLight: "#ffffff",
+
+        correctLevel:
+          QRCode.CorrectLevel.H
+
+      });
+
+    }
+
+
+    /* =====================================================
+       SHARE CARD
+    ====================================================== */
+
+    async function shareCard() {
+
+      const t =
+        translations[currentLanguage];
+
+
+      const shareData = {
+
+        title: "Top Market",
+
+        text: t.shareText,
+
+        url: window.location.href
+
+      };
+
+
+      /* Native share */
+
+      if (
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare(shareData)
+      ) {
+
+        try {
+
+          await navigator.share(shareData);
+
+          return;
+
+        } catch (error) {
+
+          if (error.name === "AbortError") {
+
+            return;
+
+          }
+
+        }
+
+      }
+
+
+      /* Fallback: copy link */
+
+      try {
+
+        await navigator.clipboard.writeText(
+          window.location.href
+        );
+
+
+        alert(t.copied);
+
+
+      } catch (error) {
+
+        /* Older browsers */
+
+        const temp =
+          document.createElement("input");
+
+
+        temp.value =
+          window.location.href;
+
+
+        document.body.appendChild(temp);
+
+
+        temp.select();
+
+
+        document.execCommand("copy");
+
+
+        temp.remove();
+
+
+        alert(t.copied);
+
+      }
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
