@@ -259,6 +259,8 @@
     }
 
 
+    /* Outer rotating circle */
+
     .monogram::before {
 
       content: "";
@@ -275,8 +277,13 @@
       transform:
         rotate(12deg);
 
+      animation:
+        monogramRotate 18s linear infinite;
+
     }
 
+
+    /* Inner rotating circle */
 
     .monogram::after {
 
@@ -293,6 +300,43 @@
 
       transform:
         rotate(-12deg);
+
+      animation:
+        monogramRotateReverse 12s linear infinite;
+
+    }
+
+
+    /* =====================================================
+       ELEGANT CONTINUOUS ROTATION
+    ===================================================== */
+
+    @keyframes monogramRotate {
+
+      from {
+        transform:
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          rotate(360deg);
+      }
+
+    }
+
+
+    @keyframes monogramRotateReverse {
+
+      from {
+        transform:
+          rotate(0deg);
+      }
+
+      to {
+        transform:
+          rotate(-360deg);
+      }
 
     }
 
@@ -340,29 +384,6 @@
 
         0 13px 35px
         rgba(65,117,5,.14);
-
-    }
-
-
-    /* small green detail */
-
-    .monogram-dot {
-
-      position: absolute;
-
-      width: 7px;
-
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: var(--green);
-
-      top: 7px;
-
-      left: 29px;
-
-      z-index: 4;
 
     }
 
@@ -932,6 +953,28 @@
 
     }
 
+
+    /* =====================================================
+       REDUCE MOTION
+    ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .monogram::before,
+      .monogram::after {
+
+        animation: none;
+
+      }
+
+      .card {
+
+        animation: none;
+
+      }
+
+    }
+
   </style>
 
 </head>
@@ -958,8 +1001,6 @@
 
 
       <div class="monogram">
-
-        <div class="monogram-dot"></div>
 
         <div class="monogram-core">
           MH
@@ -1008,7 +1049,6 @@
         rel="noopener noreferrer"
       >
 
-
         <span class="action-icon">
 
           <svg viewBox="0 0 24 24">
@@ -1051,7 +1091,6 @@
 
         </span>
 
-
       </a>
 
 
@@ -1065,7 +1104,6 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-
 
         <span class="action-icon">
 
@@ -1103,7 +1141,6 @@
 
         </span>
 
-
       </a>
 
 
@@ -1116,7 +1153,6 @@
         onclick="shareCard()"
         type="button"
       >
-
 
         <span class="action-icon">
 
@@ -1171,7 +1207,6 @@
           </svg>
 
         </span>
-
 
       </button>
 
