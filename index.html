@@ -2,7 +2,6 @@
 <html lang="ar" dir="rtl">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta name="viewport"
@@ -12,12 +11,35 @@
         content="#417505">
 
   <meta name="description"
-        content="Top Market | Digital Business Card">
+        content="Top Market — Digital Business Card">
 
-  <title>Top Market | Digital Card</title>
+  <title>Top Market — Digital Card</title>
 
 
   <style>
+
+    /* =====================================================
+       ROOT
+    ===================================================== */
+
+    :root {
+
+      --green: #417505;
+      --green-dark: #2f5603;
+      --green-light: #edf4e7;
+
+      --black: #171a16;
+      --gray: #777b74;
+      --line: #e9ede6;
+
+      --white: #ffffff;
+
+    }
+
+
+    /* =====================================================
+       RESET
+    ===================================================== */
 
     * {
       margin: 0;
@@ -26,17 +48,8 @@
     }
 
 
-    :root {
-
-      --green: #417505;
-      --green-dark: #315904;
-      --green-soft: #eef4e8;
-
-      --text: #1d1d1d;
-      --muted: #777;
-
-      --border: rgba(65,117,5,0.13);
-
+    html {
+      scroll-behavior: smooth;
     }
 
 
@@ -54,10 +67,12 @@
 
         radial-gradient(
           circle at 50% -10%,
-          #eaf2e3 0,
-          #ffffff 40%,
-          #f7f9f5 100%
+          #e8f0e2 0,
+          #f8faf7 34%,
+          #ffffff 68%
         );
+
+      color: var(--black);
 
       display: flex;
 
@@ -65,55 +80,47 @@
 
       align-items: center;
 
-      padding: 25px 15px;
-
-      color: var(--text);
+      padding: 22px 14px;
 
     }
 
 
-    /* =================================
+    /* =====================================================
        MAIN CARD
-    ================================= */
+    ===================================================== */
 
     .card {
 
       width: 100%;
 
-      max-width: 450px;
+      max-width: 455px;
 
-      background: rgba(255,255,255,.97);
+      background: rgba(255,255,255,.96);
 
-      border:
-
-        1px solid var(--border);
+      border: 1px solid rgba(65,117,5,.11);
 
       border-radius: 34px;
-
-      padding:
-
-        38px 25px 30px;
 
       position: relative;
 
       overflow: hidden;
 
-      text-align: center;
+      padding:
+        32px 25px 28px;
 
       box-shadow:
 
-        0 30px 80px rgba(0,0,0,.10),
+        0 35px 90px rgba(25,45,20,.11),
 
-        0 8px 25px rgba(65,117,5,.07);
+        0 8px 25px rgba(65,117,5,.05);
 
       animation:
-
-        cardIn .8s ease;
+        cardEntrance .75s cubic-bezier(.2,.8,.2,1);
 
     }
 
 
-    @keyframes cardIn {
+    @keyframes cardEntrance {
 
       from {
 
@@ -138,11 +145,11 @@
     }
 
 
-    /* =================================
-       DECORATION
-    ================================= */
+    /* =====================================================
+       TOP ACCENT
+    ===================================================== */
 
-    .top-line {
+    .accent {
 
       position: absolute;
 
@@ -152,129 +159,145 @@
 
       width: 100%;
 
-      height: 5px;
+      height: 4px;
 
       background:
 
         linear-gradient(
           90deg,
-          #315904,
-          #417505,
-          #6d963e,
-          #417505,
-          #315904
+          var(--green-dark),
+          var(--green),
+          #779d4b,
+          var(--green),
+          var(--green-dark)
         );
 
     }
 
 
-    .decoration-one {
+    /* Decorative circles */
+
+    .decor {
 
       position: absolute;
 
-      width: 210px;
-
-      height: 210px;
+      pointer-events: none;
 
       border-radius: 50%;
 
-      top: -135px;
+      border:
+        1px solid rgba(65,117,5,.07);
+
+    }
+
+
+    .decor.one {
+
+      width: 230px;
+
+      height: 230px;
+
+      top: -145px;
 
       right: -110px;
 
-      border:
-
-        1px solid
-        rgba(65,117,5,.10);
-
     }
 
 
-    .decoration-two {
+    .decor.two {
 
-      position: absolute;
+      width: 170px;
 
-      width: 145px;
+      height: 170px;
 
-      height: 145px;
+      bottom: -115px;
 
-      border-radius: 50%;
-
-      bottom: -100px;
-
-      left: -70px;
+      left: -100px;
 
       background:
-
-        rgba(65,117,5,.035);
+        rgba(65,117,5,.025);
 
     }
 
 
-    /* =================================
-       MH BRAND MARK
-    ================================= */
+    /* =====================================================
+       BRAND AREA
+    ===================================================== */
 
-    .brand-mark {
+    .brand {
 
-      width: 125px;
+      text-align: center;
 
-      height: 125px;
+      position: relative;
+
+      z-index: 2;
+
+    }
+
+
+    /* =====================================================
+       MH MONOGRAM
+    ===================================================== */
+
+    .monogram {
+
+      width: 132px;
+
+      height: 132px;
 
       margin:
-
-        0 auto 20px;
+        4px auto 19px;
 
       position: relative;
 
       display: flex;
 
-      align-items: center;
-
       justify-content: center;
 
-    }
-
-
-    .outer-ring {
-
-      position: absolute;
-
-      inset: 0;
-
-      border-radius: 50%;
-
-      border:
-
-        1px solid
-        rgba(65,117,5,.32);
-
-      transform:
-
-        rotate(-12deg);
+      align-items: center;
 
     }
 
 
-    .outer-ring::after {
+    .monogram::before {
 
       content: "";
 
       position: absolute;
 
-      inset: 10px;
+      inset: 3px;
 
       border-radius: 50%;
 
       border:
+        1px solid rgba(65,117,5,.35);
 
-        1px solid
-        rgba(65,117,5,.13);
+      transform:
+        rotate(12deg);
 
     }
 
 
-    .inner-logo {
+    .monogram::after {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 13px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(65,117,5,.12);
+
+      transform:
+        rotate(-12deg);
+
+    }
+
+
+    .monogram-core {
 
       width: 94px;
 
@@ -286,20 +309,22 @@
 
         linear-gradient(
           145deg,
-          #ffffff,
-          #f1f5ed
+          #ffffff 10%,
+          #f1f5ed 100%
         );
 
       border:
-
-        3px solid
-        var(--green);
+        2px solid var(--green);
 
       display: flex;
 
+      justify-content: center;
+
       align-items: center;
 
-      justify-content: center;
+      position: relative;
+
+      z-index: 3;
 
       color: var(--green);
 
@@ -309,44 +334,66 @@
 
       letter-spacing: 4px;
 
+      padding-left: 4px;
+
       box-shadow:
 
-        0 12px 30px
-        rgba(65,117,5,.15);
-
-      position: relative;
-
-      z-index: 2;
+        0 13px 35px
+        rgba(65,117,5,.14);
 
     }
 
 
-    /* =================================
-       BRAND NAME
-    ================================= */
+    /* small green detail */
+
+    .monogram-dot {
+
+      position: absolute;
+
+      width: 7px;
+
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--green);
+
+      top: 7px;
+
+      left: 29px;
+
+      z-index: 4;
+
+    }
+
+
+    /* =====================================================
+       NAME
+    ===================================================== */
 
     .brand-name {
 
       font-size: 32px;
 
+      line-height: 1.2;
+
       font-weight: 800;
 
-      color: var(--green);
+      letter-spacing: .3px;
 
-      letter-spacing: .4px;
+      color: var(--green);
 
     }
 
 
-    .brand-line {
+    .brand-rule {
 
-      width: 48px;
+      width: 45px;
 
       height: 2px;
 
       margin:
-
-        11px auto 12px;
+        12px auto 13px;
 
       background: var(--green);
 
@@ -359,65 +406,63 @@
 
       font-size: 13.5px;
 
-      line-height: 1.8;
+      line-height: 1.9;
 
-      color: var(--muted);
+      color: var(--gray);
 
       margin-bottom: 29px;
 
     }
 
 
-    /* =================================
-       BUTTONS
-    ================================= */
+    /* =====================================================
+       ACTIONS
+    ===================================================== */
 
     .actions {
+
+      position: relative;
+
+      z-index: 2;
 
       display: flex;
 
       flex-direction: column;
 
-      gap: 13px;
+      gap: 12px;
 
     }
 
 
     .action {
 
+      min-height: 62px;
+
       width: 100%;
-
-      min-height: 61px;
-
-      border-radius: 18px;
 
       display: flex;
 
       align-items: center;
 
-      justify-content: center;
-
-      gap: 12px;
-
       text-decoration: none;
 
-      font-size: 15.5px;
+      border-radius: 18px;
 
-      font-weight: 700;
+      padding: 7px 9px;
+
+      border: 1px solid transparent;
 
       cursor: pointer;
 
-      border: none;
-
-      position: relative;
-
-      overflow: hidden;
+      font-family: inherit;
 
       transition:
 
         transform .25s ease,
 
         box-shadow .25s ease,
+
+        border-color .25s ease,
 
         background .25s ease;
 
@@ -427,7 +472,7 @@
     .action:hover {
 
       transform:
-        translateY(-3px);
+        translateY(-2px);
 
     }
 
@@ -435,22 +480,24 @@
     .action:active {
 
       transform:
-        scale(.975);
+        scale(.98);
 
     }
 
 
-    /* =================================
-       ICON CIRCLE
-    ================================= */
+    /* =====================================================
+       ACTION ICON
+    ===================================================== */
 
-    .icon-circle {
+    .action-icon {
 
-      width: 35px;
+      width: 45px;
 
-      height: 35px;
+      height: 45px;
 
-      border-radius: 50%;
+      min-width: 45px;
+
+      border-radius: 14px;
 
       display: flex;
 
@@ -458,16 +505,89 @@
 
       justify-content: center;
 
-      flex-shrink: 0;
+      margin-left: 12px;
 
     }
 
 
-    .icon-circle svg {
+    .action-icon svg {
 
-      width: 18px;
+      width: 20px;
 
-      height: 18px;
+      height: 20px;
+
+      stroke: currentColor;
+
+      fill: none;
+
+      stroke-width: 1.7;
+
+      stroke-linecap: round;
+
+      stroke-linejoin: round;
+
+    }
+
+
+    .action-content {
+
+      flex: 1;
+
+      text-align: right;
+
+    }
+
+
+    .action-title {
+
+      display: block;
+
+      font-size: 15px;
+
+      font-weight: 750;
+
+      line-height: 1.4;
+
+    }
+
+
+    .action-subtitle {
+
+      display: block;
+
+      font-size: 11px;
+
+      margin-top: 2px;
+
+      opacity: .65;
+
+      font-weight: 400;
+
+    }
+
+
+    .action-arrow {
+
+      width: 30px;
+
+      height: 30px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      opacity: .55;
+
+    }
+
+
+    .action-arrow svg {
+
+      width: 15px;
+
+      height: 15px;
 
       stroke: currentColor;
 
@@ -482,26 +602,24 @@
     }
 
 
-    /* =================================
-       LOCATION BUTTON
-    ================================= */
+    /* =====================================================
+       LOCATION
+    ===================================================== */
 
     .location {
 
-      color: #ffffff;
+      color: white;
 
       background:
-
         linear-gradient(
           135deg,
-          #315904,
-          #417505
+          var(--green-dark),
+          var(--green)
         );
 
       box-shadow:
-
-        0 12px 28px
-        rgba(65,117,5,.23);
+        0 12px 27px
+        rgba(65,117,5,.22);
 
     }
 
@@ -509,38 +627,45 @@
     .location:hover {
 
       box-shadow:
-
-        0 16px 34px
-        rgba(65,117,5,.30);
+        0 17px 34px
+        rgba(65,117,5,.29);
 
     }
 
 
-    .location .icon-circle {
+    .location .action-icon {
 
       background:
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.13);
+
+      border:
+        1px solid
+        rgba(255,255,255,.13);
 
     }
 
 
-    /* =================================
-       REVIEW BUTTON
-    ================================= */
+    .location .action-arrow {
+
+      opacity: .8;
+
+    }
+
+
+    /* =====================================================
+       REVIEW
+    ===================================================== */
 
     .review {
 
       color: var(--green);
 
-      background: #ffffff;
+      background: white;
 
-      border:
-
-        1px solid
-        rgba(65,117,5,.18);
+      border-color:
+        rgba(65,117,5,.15);
 
       box-shadow:
-
         0 7px 22px
         rgba(0,0,0,.045);
 
@@ -549,111 +674,113 @@
 
     .review:hover {
 
-      background: #fafcf8;
+      background: #fbfcfa;
+
+      border-color:
+        rgba(65,117,5,.25);
 
       box-shadow:
-
-        0 11px 27px
-        rgba(65,117,5,.10);
+        0 11px 28px
+        rgba(65,117,5,.09);
 
     }
 
 
-    .review .icon-circle {
+    .review .action-icon {
 
       background:
-
-        var(--green-soft);
+        var(--green-light);
 
     }
 
 
-    /* =================================
-       SHARE BUTTON
-    ================================= */
+    /* =====================================================
+       SHARE
+    ===================================================== */
 
     .share {
 
-      color: #333;
+      color: #353535;
 
       background:
+        #f6f8f4;
 
-        #f5f7f3;
-
-      border:
-
-        1px solid
-        rgba(65,117,5,.09);
+      border-color:
+        rgba(65,117,5,.08);
 
     }
 
 
     .share:hover {
 
-      background: #edf2e9;
+      background:
+        #eef3ea;
 
     }
 
 
-    .share .icon-circle {
+    .share .action-icon {
 
       color: var(--green);
 
-      background: #ffffff;
+      background: white;
 
     }
 
 
-    /* =================================
-       QR AREA
-    ================================= */
+    /* =====================================================
+       QR SECTION
+    ===================================================== */
 
     .qr-section {
 
+      position: relative;
+
+      z-index: 2;
+
       margin-top: 31px;
 
-      padding-top: 26px;
+      padding-top: 25px;
 
       border-top:
+        1px solid var(--line);
 
-        1px solid #eeeeee;
+      text-align: center;
 
     }
 
 
-    .qr-title {
-
-      color: #666;
+    .qr-heading {
 
       font-size: 13px;
 
-      margin-bottom: 15px;
+      color: #62665f;
+
+      margin-bottom: 14px;
 
     }
 
 
-    .qr-wrapper {
+    .qr-frame {
 
-      width: 182px;
+      width: 188px;
 
-      height: 182px;
+      height: 188px;
 
       margin: auto;
 
-      padding: 13px;
-
       background: white;
 
-      border-radius: 20px;
+      padding: 14px;
+
+      border-radius: 22px;
 
       border:
-
-        1px solid
-        rgba(65,117,5,.12);
+        1px solid rgba(65,117,5,.12);
 
       box-shadow:
 
-        0 10px 28px
+        0 12px 30px
         rgba(0,0,0,.065);
 
       display: flex;
@@ -667,9 +794,9 @@
 
     #qrcode {
 
-      width: 154px;
+      width: 160px;
 
-      height: 154px;
+      height: 160px;
 
       display: flex;
 
@@ -690,17 +817,23 @@
     }
 
 
-    /* =================================
+    /* =====================================================
        FOOTER
-    ================================= */
+    ===================================================== */
 
     .footer {
 
-      margin-top: 24px;
+      text-align: center;
 
-      color: #a0a0a0;
+      margin-top: 23px;
 
-      font-size: 11.5px;
+      color: #a0a49e;
+
+      font-size: 11px;
+
+      position: relative;
+
+      z-index: 2;
 
     }
 
@@ -709,18 +842,21 @@
 
       color: var(--green);
 
+      font-weight: 700;
+
     }
 
 
-    /* =================================
+    /* =====================================================
        MOBILE
-    ================================= */
+    ===================================================== */
 
     @media (max-width: 390px) {
 
       body {
 
-        padding: 15px 10px;
+        padding:
+          12px 9px;
 
       }
 
@@ -728,19 +864,19 @@
       .card {
 
         padding:
+          29px 17px 25px;
 
-          32px 18px 25px;
-
-        border-radius: 28px;
+        border-radius: 29px;
 
       }
 
 
-      .brand-mark {
+      .monogram {
 
-        transform: scale(.92);
+        transform:
+          scale(.90);
 
-        margin-bottom: 12px;
+        margin-bottom: 8px;
 
       }
 
@@ -752,11 +888,45 @@
       }
 
 
+      .brand-description {
+
+        margin-bottom: 24px;
+
+      }
+
+
       .action {
 
-        min-height: 57px;
+        min-height: 59px;
 
-        font-size: 15px;
+      }
+
+    }
+
+
+    /* =====================================================
+       VERY SMALL SCREENS
+    ===================================================== */
+
+    @media (max-width: 340px) {
+
+      .action-subtitle {
+
+        display: none;
+
+      }
+
+
+      .action-icon {
+
+        margin-left: 8px;
+
+      }
+
+
+      .action-title {
+
+        font-size: 14px;
 
       }
 
@@ -773,59 +943,63 @@
   <main class="card">
 
 
-    <div class="top-line"></div>
+    <div class="accent"></div>
 
-    <div class="decoration-one"></div>
+    <div class="decor one"></div>
 
-    <div class="decoration-two"></div>
+    <div class="decor two"></div>
 
 
-    <!-- =========================
-         MH LOGO
-    ========================== -->
+    <!-- =================================================
+         BRAND
+    ================================================== -->
 
-    <div class="brand-mark">
+    <section class="brand">
 
-      <div class="outer-ring"></div>
 
-      <div class="inner-logo">
-        MH
+      <div class="monogram">
+
+        <div class="monogram-dot"></div>
+
+        <div class="monogram-core">
+          MH
+        </div>
+
       </div>
 
-    </div>
+
+      <h1 class="brand-name">
+        Top Market
+      </h1>
 
 
-    <!-- =========================
-         BRAND
-    ========================== -->
-
-    <h1 class="brand-name">
-      Top Market
-    </h1>
+      <div class="brand-rule"></div>
 
 
-    <div class="brand-line"></div>
+      <p class="brand-description">
+
+        بطاقة رقمية احترافية
+
+        <br>
+
+        وصول سريع إلى Top Market
+
+      </p>
 
 
-    <p class="brand-description">
-
-      بطاقة رقمية احترافية
-
-      <br>
-
-      للوصول السريع إلى Top Market
-
-    </p>
+    </section>
 
 
-    <!-- =========================
-         ACTIONS
-    ========================== -->
+    <!-- =================================================
+         ACTION BUTTONS
+    ================================================== -->
 
-    <div class="actions">
+    <section class="actions">
 
 
-      <!-- LOCATION -->
+      <!-- =========================
+           GOOGLE MAPS
+      ========================== -->
 
       <a
         class="action location"
@@ -834,7 +1008,8 @@
         rel="noopener noreferrer"
       >
 
-        <span class="icon-circle">
+
+        <span class="action-icon">
 
           <svg viewBox="0 0 24 24">
 
@@ -845,21 +1020,44 @@
             <circle
               cx="12"
               cy="10"
-              r="2.5">
+              r="2.6">
             </circle>
 
           </svg>
 
         </span>
 
-        <span>
-          موقع Top Market
+
+        <span class="action-content">
+
+          <span class="action-title">
+            موقع Top Market
+          </span>
+
+          <span class="action-subtitle">
+            فتح الموقع على Google Maps
+          </span>
+
         </span>
+
+
+        <span class="action-arrow">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="m9 18 6-6-6-6"></path>
+
+          </svg>
+
+        </span>
+
 
       </a>
 
 
-      <!-- GOOGLE REVIEW -->
+      <!-- =========================
+           GOOGLE REVIEW
+      ========================== -->
 
       <a
         class="action review"
@@ -868,7 +1066,8 @@
         rel="noopener noreferrer"
       >
 
-        <span class="icon-circle">
+
+        <span class="action-icon">
 
           <svg viewBox="0 0 24 24">
 
@@ -880,21 +1079,46 @@
 
         </span>
 
-        <span>
-          قيّمنا على Google
+
+        <span class="action-content">
+
+          <span class="action-title">
+            قيّمنا على Google
+          </span>
+
+          <span class="action-subtitle">
+            شاركنا رأيك وتجربتك
+          </span>
+
         </span>
+
+
+        <span class="action-arrow">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="m9 18 6-6-6-6"></path>
+
+          </svg>
+
+        </span>
+
 
       </a>
 
 
-      <!-- SHARE -->
+      <!-- =========================
+           SHARE
+      ========================== -->
 
       <button
         class="action share"
         onclick="shareCard()"
+        type="button"
       >
 
-        <span class="icon-circle">
+
+        <span class="action-icon">
 
           <svg viewBox="0 0 24 24">
 
@@ -916,53 +1140,72 @@
               r="2.5">
             </circle>
 
-            <path
-              d="m8.2 10.8 7.5-4.3">
-            </path>
+            <path d="m8.2 10.8 7.5-4.3"></path>
 
-            <path
-              d="m8.2 13.2 7.5 4.3">
-            </path>
+            <path d="m8.2 13.2 7.5 4.3"></path>
 
           </svg>
 
         </span>
 
-        <span>
-          مشاركة البطاقة
+
+        <span class="action-content">
+
+          <span class="action-title">
+            مشاركة البطاقة
+          </span>
+
+          <span class="action-subtitle">
+            أرسل بطاقة Top Market لشخص آخر
+          </span>
+
         </span>
+
+
+        <span class="action-arrow">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="m9 18 6-6-6-6"></path>
+
+          </svg>
+
+        </span>
+
 
       </button>
 
 
-    </div>
+    </section>
 
 
-    <!-- =========================
-         QR CODE
-    ========================== -->
+    <!-- =================================================
+         QR
+    ================================================== -->
 
     <section class="qr-section">
 
-      <p class="qr-title">
-        امسح الرمز لفتح البطاقة
+
+      <p class="qr-heading">
+        امسح QR Code لفتح البطاقة
       </p>
 
 
-      <div class="qr-wrapper">
+      <div class="qr-frame">
 
         <div id="qrcode"></div>
 
       </div>
 
+
     </section>
 
 
-    <!-- =========================
+    <!-- =================================================
          FOOTER
-    ========================== -->
+    ================================================== -->
 
-    <div class="footer">
+    <footer class="footer">
 
       <strong>Top Market</strong>
 
@@ -970,13 +1213,15 @@
 
       Digital Business Card
 
-    </div>
+    </footer>
 
 
   </main>
 
 
-  <!-- QR CODE LIBRARY -->
+  <!-- ===================================================
+       QR CODE LIBRARY
+  ==================================================== -->
 
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
@@ -986,9 +1231,9 @@
   <script>
 
 
-    /* =========================
+    /* ===================================================
        QR CODE
-    ========================= */
+    ==================================================== */
 
     new QRCode(
 
@@ -1000,10 +1245,10 @@
           window.location.href,
 
         width:
-          154,
+          160,
 
         height:
-          154,
+          160,
 
         colorDark:
           "#417505",
@@ -1019,9 +1264,9 @@
     );
 
 
-    /* =========================
+    /* ===================================================
        SHARE
-    ========================= */
+    ==================================================== */
 
     async function shareCard() {
 
@@ -1032,7 +1277,7 @@
           "Top Market",
 
         text:
-          "Top Market - البطاقة الرقمية",
+          "Top Market — البطاقة الرقمية",
 
         url:
           window.location.href
@@ -1053,7 +1298,7 @@
 
         catch (error) {
 
-          // تم إغلاق نافذة المشاركة
+          /* المستخدم أغلق نافذة المشاركة */
 
         }
 
