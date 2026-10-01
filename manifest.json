@@ -1,0 +1,12 @@
+{
+  "name": "Top Market",
+  "short_name": "Top Market",
+  "description": "Top Market — Digital Business Card",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#417505",
+  "orientation": "portrait",
+  "lang": "ar",
+  "dir": "rtl"
+}
