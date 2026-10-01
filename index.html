@@ -1832,6 +1832,102 @@
     });
   }
 </script>
+  <script>
+
+  let deferredPrompt = null;
+
+  const installButton =
+    document.getElementById("installButton");
+
+
+  /* Android / Chrome */
+
+  window.addEventListener(
+    "beforeinstallprompt",
+    event => {
+
+      event.preventDefault();
+
+      deferredPrompt = event;
+
+      if (installButton) {
+        installButton.style.display = "flex";
+      }
+
+    }
+  );
+
+
+  async function installCard() {
+
+    /* Android */
+
+    if (deferredPrompt) {
+
+      deferredPrompt.prompt();
+
+      const result =
+        await deferredPrompt.userChoice;
+
+      deferredPrompt = null;
+
+      return;
+
+    }
+
+
+    /* iPhone / iPad */
+
+    const isIOS =
+      /iphone|ipad|ipod/i.test(
+        navigator.userAgent
+      );
+
+
+    const isSafari =
+      /safari/i.test(
+        navigator.userAgent
+      ) &&
+      !/crios|fxios|edgios/i.test(
+        navigator.userAgent
+      );
+
+
+    if (isIOS && isSafari) {
+
+      alert(
+        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
+        "1. اضغط على زر المشاركة ⬆️ في Safari\n\n" +
+        "2. اختر «إضافة إلى الشاشة الرئيسية»\n\n" +
+        "3. اضغط «إضافة»"
+      );
+
+      return;
+
+    }
+
+
+    alert(
+      "يمكنك إضافة بطاقة Top Market إلى الشاشة الرئيسية من قائمة المتصفح."
+    );
+
+  }
+
+
+  /* إخفاء الزر إذا كانت البطاقة مثبتة بالفعل */
+
+  window.addEventListener(
+    "appinstalled",
+    () => {
+
+      if (installButton) {
+        installButton.style.display = "none";
+      }
+
+    }
+  );
+
+</script>
 </body>
 
 </html>
