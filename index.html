@@ -1725,7 +1725,19 @@
 
   </script>
 
-
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .then(() => {
+          console.log("Top Market: Offline mode enabled");
+        })
+        .catch(error => {
+          console.error("Service Worker error:", error);
+        });
+    });
+  }
+</script>
 </body>
 
 </html>
