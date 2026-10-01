@@ -3,10 +3,20 @@
   "short_name": "Top Market",
   "description": "Top Market — Digital Business Card",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#417505",
   "orientation": "portrait",
   "lang": "ar",
-  "dir": "rtl"
+  "dir": "rtl",
+
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
