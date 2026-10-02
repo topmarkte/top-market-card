@@ -1115,9 +1115,8 @@
 
     </footer>
 
-  </main>
-
-  <!-- QR CODE LIBRARY -->
+        </main>
+          <!-- QR CODE LIBRARY -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
@@ -1224,4 +1223,420 @@
 
         iosInstall:
           "Pour ajouter la carte à l’écran d’accueil :\n\n" +
-        
+          "1. Appuyez sur le bouton Partager ⬆️ dans Safari\n\n" +
+          "2. Choisissez « Ajouter à l’écran d’accueil »\n\n" +
+          "3. Appuyez sur « Ajouter »",
+
+        browserInstall:
+          "Vous pouvez ajouter la carte Top Market à l’écran d’accueil depuis le menu du navigateur."
+
+      },
+
+      en: {
+
+        description:
+          "Professional digital card<br>Quick access to Top Market",
+
+        locationTitle:
+          "Top Market Location",
+
+        locationSubtitle:
+          "Open location on Google Maps",
+
+        reviewTitle:
+          "Review us on Google",
+
+        reviewSubtitle:
+          "Share your opinion and experience",
+
+        shareTitle:
+          "Share the Card",
+
+        shareSubtitle:
+          "Send the Top Market card to someone",
+
+        qrHeading:
+          "Scan the QR Code to open the card",
+
+        footer:
+          "Digital Business Card",
+
+        shareText:
+          "Top Market — Digital Card",
+
+        copied:
+          "Card link copied successfully",
+
+        installTitle:
+          "Add to Home Screen",
+
+        installSubtitle:
+          "Keep the Top Market card on your phone",
+
+        iosInstall:
+          "To add the card to your Home Screen:\n\n" +
+          "1. Tap the Share button ⬆️ in Safari\n\n" +
+          "2. Choose “Add to Home Screen”\n\n" +
+          "3. Tap “Add”",
+
+        browserInstall:
+          "You can add the Top Market card to your Home Screen from your browser menu."
+
+      }
+
+    };
+
+
+    /* =====================================================
+       CURRENT LANGUAGE
+    ====================================================== */
+
+    let currentLanguage = "ar";
+
+
+    /* =====================================================
+       CHANGE LANGUAGE
+    ====================================================== */
+
+    function changeLanguage(lang) {
+
+      if (!translations[lang]) return;
+
+      currentLanguage = lang;
+
+      const t = translations[lang];
+
+      document.documentElement.lang = lang;
+
+      document.documentElement.dir =
+        lang === "ar" ? "rtl" : "ltr";
+
+
+      document.getElementById(
+        "brandDescription"
+      ).innerHTML = t.description;
+
+
+      document.getElementById(
+        "locationTitle"
+      ).textContent = t.locationTitle;
+
+
+      document.getElementById(
+        "locationSubtitle"
+      ).textContent = t.locationSubtitle;
+
+
+      document.getElementById(
+        "reviewTitle"
+      ).textContent = t.reviewTitle;
+
+
+      document.getElementById(
+        "reviewSubtitle"
+      ).textContent = t.reviewSubtitle;
+
+
+      document.getElementById(
+        "shareTitle"
+      ).textContent = t.shareTitle;
+
+
+      document.getElementById(
+        "shareSubtitle"
+      ).textContent = t.shareSubtitle;
+
+
+      document.getElementById(
+        "qrHeading"
+      ).textContent = t.qrHeading;
+
+
+      document.getElementById(
+        "footerText"
+      ).textContent = t.footer;
+
+
+      /* INSTALL BUTTON TRANSLATION */
+
+      document.getElementById(
+        "installTitle"
+      ).textContent = t.installTitle;
+
+
+      document.getElementById(
+        "installSubtitle"
+      ).textContent = t.installSubtitle;
+
+
+      /* ACTIVE LANGUAGE BUTTON */
+
+      document.querySelectorAll(
+        ".lang-btn"
+      ).forEach(button => {
+
+        button.classList.toggle(
+          "active",
+          button.dataset.lang === lang
+        );
+
+      });
+
+    }
+
+
+    /* =====================================================
+       QR CODE
+    ====================================================== */
+
+    const qrContainer =
+      document.getElementById("qrcode");
+
+
+    if (
+      qrContainer &&
+      typeof QRCode !== "undefined"
+    ) {
+
+      new QRCode(qrContainer, {
+
+        text: window.location.href,
+
+        width: 160,
+
+        height: 160,
+
+        colorDark: "#171a16",
+
+        colorLight: "#ffffff",
+
+        correctLevel:
+          QRCode.CorrectLevel.H
+
+      });
+
+    }
+
+
+    /* =====================================================
+       SHARE CARD
+    ====================================================== */
+
+    async function shareCard() {
+
+      const t =
+        translations[currentLanguage];
+
+
+      const shareData = {
+
+        title: "Top Market",
+
+        text: t.shareText,
+
+        url: window.location.href
+
+      };
+
+
+      if (
+        navigator.share &&
+        navigator.canShare &&
+        navigator.canShare(shareData)
+      ) {
+
+        try {
+
+          await navigator.share(shareData);
+
+          return;
+
+        } catch (error) {
+
+          if (error.name === "AbortError") {
+
+            return;
+
+          }
+
+        }
+
+      }
+
+
+      try {
+
+        await navigator.clipboard.writeText(
+          window.location.href
+        );
+
+        alert(t.copied);
+
+      } catch (error) {
+
+        const temp =
+          document.createElement("input");
+
+        temp.value =
+          window.location.href;
+
+        document.body.appendChild(temp);
+
+        temp.select();
+
+        document.execCommand("copy");
+
+        temp.remove();
+
+        alert(t.copied);
+
+      }
+
+    }
+
+  </script>
+    <script>
+
+    /* =====================================================
+       SERVICE WORKER
+    ====================================================== */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener("load", () => {
+
+        navigator.serviceWorker.register("./sw.js")
+
+          .then(() => {
+
+            console.log(
+              "Top Market: Offline mode enabled"
+            );
+
+          })
+
+          .catch(error => {
+
+            console.error(
+              "Service Worker error:",
+              error
+            );
+
+          });
+
+      });
+
+    }
+
+  </script>
+
+
+  <script>
+
+    /* =====================================================
+       PWA INSTALLATION
+    ====================================================== */
+
+    let deferredPrompt = null;
+
+
+    const installButton =
+      document.getElementById("installButton");
+
+
+    /* ANDROID / CHROME */
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      event => {
+
+        event.preventDefault();
+
+        deferredPrompt = event;
+
+        if (installButton) {
+
+          installButton.style.display = "flex";
+
+        }
+
+      }
+    );
+
+
+    /* INSTALL CARD */
+
+    async function installCard() {
+
+      const t =
+        translations[currentLanguage];
+
+
+      /* ANDROID / CHROME */
+
+      if (deferredPrompt) {
+
+        deferredPrompt.prompt();
+
+        await deferredPrompt.userChoice;
+
+        deferredPrompt = null;
+
+        return;
+
+      }
+
+
+      /* iPHONE / iPAD */
+
+      const isIOS =
+        /iphone|ipad|ipod/i.test(
+          navigator.userAgent
+        );
+
+
+      const isSafari =
+        /safari/i.test(
+          navigator.userAgent
+        ) &&
+        !/crios|fxios|edgios/i.test(
+          navigator.userAgent
+        );
+
+
+      if (isIOS && isSafari) {
+
+        alert(t.iosInstall);
+
+        return;
+
+      }
+
+
+      /* OTHER BROWSERS */
+
+      alert(t.browserInstall);
+
+    }
+
+
+    /* HIDE AFTER INSTALLATION */
+
+    window.addEventListener(
+      "appinstalled",
+      () => {
+
+        if (installButton) {
+
+          installButton.style.display = "none";
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
