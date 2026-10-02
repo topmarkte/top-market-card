@@ -2,7 +2,7 @@
   "name": "Top Market",
   "short_name": "Top Market",
   "description": "Top Market — Digital Business Card",
-  "start_url": "./",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -10,7 +10,6 @@
   "orientation": "portrait",
   "lang": "ar",
   "dir": "rtl",
-
   "icons": [
     {
       "src": "./icon.svg",
