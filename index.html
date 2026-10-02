@@ -1539,102 +1539,131 @@
 
     let deferredPrompt = null;
 
-
-    const installButton =
-      document.getElementById("installButton");
-
-
-    /* ANDROID / CHROME */
-
-    window.addEventListener(
-      "beforeinstallprompt",
-      event => {
-
-        event.preventDefault();
-
-        deferredPrompt = event;
-
-        if (installButton) {
-
-          installButton.style.display = "flex";
-
-        }
-
-      }
-    );
+const installButton =
+  document.getElementById("installButton");
 
 
-    /* INSTALL CARD */
-
-    async function installCard() {
-
-      const t =
-        translations[currentLanguage];
-
-
-      /* ANDROID / CHROME */
-
-      if (deferredPrompt) {
-
-        deferredPrompt.prompt();
-
-        await deferredPrompt.userChoice;
-
-        deferredPrompt = null;
-
-        return;
-
-      }
+// معرفة هل البطاقة تعمل كتطبيق مثبت بالفعل
+function isAppInstalled() {
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.navigator.standalone === true
+  );
+}
 
 
-      /* iPHONE / iPAD */
+// إذا كانت البطاقة مثبتة بالفعل، نخفي زر التثبيت
+function updateInstallButton() {
+  if (!installButton) return;
 
-      const isIOS =
-        /iphone|ipad|ipod/i.test(
-          navigator.userAgent
-        );
-
-
-      const isSafari =
-        /safari/i.test(
-          navigator.userAgent
-        ) &&
-        !/crios|fxios|edgios/i.test(
-          navigator.userAgent
-        );
+  if (isAppInstalled()) {
+    installButton.style.display = "none";
+  }
+}
 
 
-      if (isIOS && isSafari) {
+// استقبال طلب التثبيت من المتصفح
+window.addEventListener(
+  "beforeinstallprompt",
+  event => {
 
-        alert(t.iosInstall);
+    event.preventDefault();
 
-        return;
+    deferredPrompt = event;
 
-      }
+    // لا نظهر الزر إذا كانت البطاقة مثبتة بالفعل
+    if (installButton && !isAppInstalled()) {
+      installButton.style.display = "flex";
+    }
+  }
+);
 
 
-      /* OTHER BROWSERS */
+// وظيفة تثبيت البطاقة
+async function installCard() {
 
-      alert(t.browserInstall);
+  const t = translations[currentLanguage];
 
+  // إذا كانت البطاقة مثبتة بالفعل
+  if (isAppInstalled()) {
+    return;
+  }
+
+  // إذا كان المتصفح أعطانا نافذة التثبيت
+  if (deferredPrompt) {
+
+    deferredPrompt.prompt();
+
+    const result = await deferredPrompt.userChoice;
+
+    if (result.outcome === "accepted") {
+      console.log("Top Market: App installed");
     }
 
+    deferredPrompt = null;
 
-    /* HIDE AFTER INSTALLATION */
+    return;
+  }
 
-    window.addEventListener(
-      "appinstalled",
-      () => {
 
-        if (installButton) {
-
-          installButton.style.display = "none";
-
-        }
-
-      }
+  // iPhone / iPad
+  const isIOS =
+    /iphone|ipad|ipod/i.test(
+      navigator.userAgent
     );
 
+  const isSafari =
+    /safari/i.test(
+      navigator.userAgent
+    ) &&
+    !/crios|fxios|edgios/i.test(
+      navigator.userAgent
+    );
+
+
+  if (isIOS && isSafari) {
+    alert(t.iosInstall);
+    return;
+  }
+
+
+  // المتصفح لا يوفر نافذة التثبيت
+  alert(t.browserInstall);
+}
+
+
+// عند نجاح التثبيت
+window.addEventListener(
+  "appinstalled",
+  () => {
+
+    deferredPrompt = null;
+
+    if (installButton) {
+      installButton.style.display = "none";
+    }
+
+    console.log("Top Market: Installation completed");
+  }
+);
+
+
+// فحص الحالة عند تشغيل البطاقة
+window.addEventListener(
+  "load",
+  () => {
+    updateInstallButton();
+  }
+);
+
+
+// فحص الحالة عند العودة إلى البطاقة
+window.addEventListener(
+  "pageshow",
+  () => {
+    updateInstallButton();
+  }
+);
   </script>
 
 </body>
