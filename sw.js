@@ -1,4 +1,4 @@
-const CACHE_NAME = "top-market-card-v4";
+const CACHE_NAME = "top-market-card-v3";
 
 const FILES_TO_CACHE = [
   "./",
