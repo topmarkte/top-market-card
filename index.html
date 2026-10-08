@@ -1554,11 +1554,21 @@ function isAppInstalled() {
 
 // إذا كانت البطاقة مثبتة بالفعل، نخفي زر التثبيت
 function updateInstallButton() {
+
   if (!installButton) return;
 
-  if (isAppInstalled()) {
+  const isIOS =
+    /iphone|ipad|ipod/i.test(
+      navigator.userAgent
+    );
+
+  if (
+    isAppInstalled() ||
+    isIOS
+  ) {
     installButton.style.display = "none";
   }
+
 }
 
 
@@ -1571,13 +1581,23 @@ window.addEventListener(
 
     deferredPrompt = event;
 
-    // لا نظهر الزر إذا كانت البطاقة مثبتة بالفعل
-    if (installButton && !isAppInstalled()) {
+    // لا نظهر زر التثبيت على iPhone / iPad
+    const isIOS =
+      /iphone|ipad|ipod/i.test(
+        navigator.userAgent
+      );
+
+    if (
+      installButton &&
+      !isAppInstalled() &&
+      !isIOS
+    ) {
       installButton.style.display = "flex";
     }
+
   }
 );
-
+  
 
 // وظيفة تثبيت البطاقة
 async function installCard() {
