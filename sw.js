@@ -1,4 +1,4 @@
-const CACHE_NAME = "top-market-card-v4";
+const CACHE_NAME = "top-market-card-v5";
 
 const APP_SHELL = [
   "./",
